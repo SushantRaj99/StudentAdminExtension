@@ -1,0 +1,11 @@
+{
+   "manifest_version": 2,
+   "name": "Student Admin but not that ugly",
+   "description": "Makes UConn's Student Admin page more user friendly",
+   "version": "1.0.1",
+   
+   "content_scripts": [ {
+      "js": [ "contentScript.js" ],
+      "matches": [ "https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/*" ]
+   } ]
+}
