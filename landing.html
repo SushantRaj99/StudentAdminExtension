@@ -612,16 +612,16 @@
 
             document.getElementById("ifrm-planner").onload = function() {setTimeout(500,navigate_selection("ifrm-planner", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "4010"))};
             document.getElementById("ifrm-requirements").onload = function() {setTimeout(400,navigate_selection("ifrm-requirements", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "3010"))};
-            document.getElementById("ifrm-class-search").onload = function() {navigate("ifrm-class-search", "PRJCS_DERIVED_PRJCS_SCHD_PLN_PB")};
+            document.getElementById("ifrm-class-search").onload = function() {navigate("ifrm-class-search", "DERIVED_SSS_SCL_UC_CLASS_SRCH")};
 
-            document.getElementById("ifrm-add").onload = function() {navigate_selection("ifrm-add", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1005")};
-            document.getElementById("ifrm-drop").onload = function() {navigate_selection("ifrm-drop", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1008")};
-            document.getElementById("ifrm-edit").onload = function() {navigate_selection("ifrm-edit", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1010")};
-            document.getElementById("ifrm-swap").onload = function() {navigate_selection("ifrm-swap", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1015")};
+            document.getElementById("ifrm-add").onload = function() {setTimeout(300, navigate_selection("ifrm-add", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1005"))};
+            document.getElementById("ifrm-drop").onload = function() {setTimeout(400, navigate_selection("ifrm-drop", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1008"))};
+            document.getElementById("ifrm-edit").onload = function() {setTimeout(500, navigate_selection("ifrm-edit", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1010")});
+            document.getElementById("ifrm-swap").onload = function() {setTimeout(200, navigate_selection("ifrm-swap", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1015"))};
 
 
             document.getElementById("ifrm-schedule").onload = function() {navigate("ifrm-schedule", "DERIVED_SSS_SCL_SS_WEEKLY_SCHEDULE")};
-            document.getElementById("ifrm-finals-schedule").onload = function() {nnavigate_selection("ifrm-finals-schedule", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1020")};
+            document.getElementById("ifrm-finals-schedule").onload = function() {setTimeout(300, navigate_selection("ifrm-finals-schedule", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1020"))};
 
             function loadStuff(){
 
