@@ -463,45 +463,57 @@
 
     <div id="mySidebar" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="#">Home</a>
+        <a href="#" onclick="display_home()">Home</a>
         <a href="#" onclick="display_finance()">Finances</a>
         <a href="#" onclick="display_grades()">Grades, Transcripts & GPA</a>
         <a href="#" onclick="display_schedule()">My Schedule</a>
         <a href="#" onclick="display_picking()">Class Picking</a>
         <a href="#" onclick="display_enrollment()">Enrollment</a>
-        <a href="javascript:clear()" onclick="clear()">Clear</a>
+        <br>
+        <a><input type="checkbox" id="sticky" name="sticky" onclick="toggle_sticky()"> Sticky Mode</a>
+        <a href="javascript:clear()" onclick="clear()" style="color:red">Clear</a>
+        <br>
         <a href="https://forms.gle/KrrPZZ7ov8p5mBMn7">Extension Feedback</a>
         <a href="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/?cmd=logout">Sign Out</a>
       </div>
 
       <div id = "main" class = "main">
+        <div id = "home" style="color:white">
+        <iframe id="home-page" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" style="display:none"></iframe>
+            <p>Holds:</p>
+            <p id="holds"></p>
+            <br>
+            <p>Advisor Info:</p>
+            <p id="advisor-info"></p>
+        </div>
+
         <div id="finance" style = "display:none;">
                         <button type="button" class="collapsible">View Fee Bill</button>
                             <div class="content">
-                                <iframe loading="lazy" src="https://student.studentadmin.uconn.edu/psc/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.UC_SS_TERM_BILL.GBL?Page=UC_SS_TERM_BILL&Action=U&TargetFrameName=None" width="100%" height="300" style="border:1px solid black;"></iframe>
+                                <iframe loading="lazy" src="https://student.studentadmin.uconn.edu/psc/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.UC_SS_TERM_BILL.GBL?Page=UC_SS_TERM_BILL&Action=U&TargetFrameName=None" width="100%" height="500" style="border:1px solid black;"></iframe>
                             </div>
                         <button type="button" class="collapsible">Pay Bill</button>
                             <div class="content">
-                                <iframe  loading="lazy" src="https://payplan.uconn.edu/C21646_tsa/web/caslogin.jsp" width="100%" height="300" style="border:1px solid black;"></iframe>
+                                <iframe  loading="lazy" src="https://payplan.uconn.edu/C21646_tsa/web/caslogin.jsp" width="100%" height="500" style="border:1px solid black;"></iframe>
                             </div>
 
                         <button type="button" class="collapsible">Pay Bill by Wire Transfer</button>
                             <div class="content">
-                                <iframe loading="lazy" src="https://student.globalpay.wu.com/geo-buyer/universityofconnecticut#!/" width="100%" height="300" style="border:1px solid black;"></iframe>
+                                <iframe loading="lazy" src="https://student.globalpay.wu.com/geo-buyer/universityofconnecticut#!/" width="100%" height="500" style="border:1px solid black;"></iframe>
                             </div>
 
                         <button type="button" class="collapsible">View Financial Aid</button>
                             <div class="content">
-                                <iframe id = "ifrm-aid" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                                <iframe id = "ifrm-aid" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                             </div>
 
                         <button type="button" class="collapsible">Requests and Permissions</button>
                             <div class="content">
-                                <iframe id = "ifrm-permissions" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                                <iframe id = "ifrm-permissions" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                             </div>
                         <button type="button" class="collapsible">Direct Deposit Info</button>
                             <div class="content">
-                                <iframe id = "ifrm-direct-deposit" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                                <iframe id = "ifrm-direct-deposit" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                             </div>
 
                 </table>
@@ -511,17 +523,17 @@
             <div id="grades" style = "display:none;">
                             <button type="button" class="collapsible">Grades</button>
                                 <div class="content">
-                                    <iframe id="ifrm-grades" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                                    <iframe id="ifrm-grades" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                                 </div>
 
                             <button type="button" class="collapsible">Official Transcript</button>
                                 <div class="content">
-                                    <iframe id="ifrm-transcript-official" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                                    <iframe id="ifrm-transcript-official" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                                 </div>
                             
                             <button type="button" class="collapsible">Unofficial Transcript</button>
                                 <div class="content">
-                                    <iframe id="ifrm-transcript-unofficial" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                                    <iframe id="ifrm-transcript-unofficial" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                                 </div>
             </div>
 
@@ -529,53 +541,53 @@
             <div id="class-picking" style = "display:none;">
                 <button type="button" class="collapsible">Academic Planner</button>
                     <div class="content">
-                        <iframe id="ifrm-planner" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                        <iframe id="ifrm-planner" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                     </div>
 
                 <button type="button" class="collapsible">Academic Requirements</button>
                     <div class="content">
-                        <iframe id="ifrm-requirements" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                        <iframe id="ifrm-requirements" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                     </div>
                 
                 <button type="button" class="collapsible">Schedule Builder</button>
                     <div class="content">
-                        <iframe id="ifrm-schedule-builder" loading="lazy" src="https://uconn.collegescheduler.com/entry" width="100%" height="300" style="border:1px solid black;"></iframe>
+                        <iframe id="ifrm-schedule-builder" loading="lazy" src="https://uconn.collegescheduler.com/entry" width="100%" height="500" style="border:1px solid black;"></iframe>
                     </div>
 
                 <button type="button" class="collapsible">Dynamic Class Search</button>
                     <div class="content">
-                        <iframe id="ifrm-class-search" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                        <iframe id="ifrm-class-search" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                     </div>
             </div>
             
             <div id="enrollment" style = "display:none;">
                 <button type="button" class="collapsible">Add</button>
                     <div class="content">
-                        <iframe id="ifrm-add" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                        <iframe id="ifrm-add" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                     </div>
 
                 <button type="button" class="collapsible">Drop</button>
                     <div class="content">
-                        <iframe id="ifrm-drop" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                        <iframe id="ifrm-drop" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                     </div>
                 
                 <button type="button" class="collapsible">Edit</button>
                     <div class="content">
-                        <iframe id="ifrm-edit" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                        <iframe id="ifrm-edit" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                     </div>
 
                 <button type="button" class="collapsible">Swap</button>
                     <div class="content">
-                        <iframe id="ifrm-swap" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                        <iframe id="ifrm-swap" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                     </div>
             </div> 
 
 
             <div id="schedule"  style = "display:none;">
-                <iframe id="ifrm-schedule" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                <iframe id="ifrm-schedule" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                 <button type="button" class="collapsible">Finals Schedule</button>
                     <div class="content">
-                        <iframe id="ifrm-finals-schedule" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="300" style="border:1px solid black;"></iframe>
+                        <iframe id="ifrm-finals-schedule" loading="lazy" src="https://student.studentadmin.uconn.edu/psp/CSPR/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSS_STUDENT_CENTER.GBL?1&PORTALPARAM_PTCNAV=UC_SS_STUDENT&EOPP.SCNode=HRMS&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=UC_SELF_SERVICE&EOPP.SCLabel=Self-Service&EOPP.SCPTfname=UC_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.UC_SELF_SERVICE.UC_SS_STUDENT&IsFolder=false#" width="100%" height="500" style="border:1px solid black;"></iframe>
                     </div>
             </div> 
 
@@ -584,8 +596,7 @@
         
     </div>
     <footer style="text-align: center; color:rgb(255, 255, 255);">Made with <span style="color: #e25555;">&#9829;</span> by Jigyasa Gupta</footer>
-        <script>
-            
+    <script>
             
 
             function openNav() {
@@ -616,18 +627,28 @@
 
             document.getElementById("ifrm-add").onload = function() {setTimeout(300, navigate_selection("ifrm-add", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1005"))};
             document.getElementById("ifrm-drop").onload = function() {setTimeout(400, navigate_selection("ifrm-drop", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1008"))};
-            document.getElementById("ifrm-edit").onload = function() {setTimeout(500, navigate_selection("ifrm-edit", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1010")});
+            document.getElementById("ifrm-edit").onload = function() {setTimeout(500, navigate_selection("ifrm-edit", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1010"))};
             document.getElementById("ifrm-swap").onload = function() {setTimeout(200, navigate_selection("ifrm-swap", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1015"))};
 
 
             document.getElementById("ifrm-schedule").onload = function() {navigate("ifrm-schedule", "DERIVED_SSS_SCL_SS_WEEKLY_SCHEDULE")};
             document.getElementById("ifrm-finals-schedule").onload = function() {setTimeout(300, navigate_selection("ifrm-finals-schedule", "DERIVED_SSS_SCL_SSS_GO_1", "DERIVED_SSS_SCL_SSS_MORE_ACADEMICS", "1020"))};
+            document.getElementById("home-page").onload = function() {pull_home()};
 
-            function loadStuff(){
 
+            function toggle_sticky(){
+                if(document.getElementById("sticky").checked){
+                    sticky = true;
+                }
+                else{
+                    sticky = false;
+                }
             }
 
             function display_finance() {
+                if(!sticky){
+                    clear();
+                }
                 var x = document.getElementById("finance");
                 if (x.style.display === "none") {
                     x.style.display = "block";
@@ -636,7 +657,22 @@
                 }
             }
 
+            function display_home() {
+                if(!sticky){
+                    clear();
+                }
+                var x = document.getElementById("home");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+
             function display_grades() {
+                if(!sticky){
+                    clear();
+                }
                 var x = document.getElementById("grades");
                 if (x.style.display === "none") {
                     x.style.display = "block";
@@ -645,8 +681,20 @@
                 }
             }
 
+            function pull_home(){
+                ifrm1 = document.getElementById("home-page");
+                doc1 = ifrm1.contentWindow;
+                doc = doc1.document.getElementById("ptifrmtgtframe");
+                document.getElementById("holds").innerHTML = doc.contentWindow.document.getElementById("DERIVED_SSS_SCL_DESCR1$94$").innerHTML;
+                document.getElementById("advisor-info").innerHTML = doc.contentWindow.document.getElementById("win0div$ICField137$0").innerHTML;
+
+            }
+
 
             function display_picking() {
+                if(!sticky){
+                    clear();
+                }
                 var x = document.getElementById("class-picking");
                 if (x.style.display === "none") {
                     x.style.display = "block";
@@ -656,6 +704,9 @@
             }
 
             function display_enrollment() {
+                if(!sticky){
+                    clear();
+                }
                 var x = document.getElementById("enrollment");
                 if (x.style.display === "none") {
                     x.style.display = "block";
@@ -666,6 +717,9 @@
 
 
             function display_schedule() {
+                if(!sticky){
+                    clear();
+                }
                 var x = document.getElementById("schedule");
                 if (x.style.display === "none") {
                     x.style.display = "block";
@@ -675,7 +729,9 @@
             }
 
             function clear(){
-                console.log("clear!")
+                console.log("clear!");
+                var x = document.getElementById("home");
+                x.style.display = "none";
                 var x = document.getElementById("schedule");
                 x.style.display = "none";
                 x = document.getElementById("enrollment");
@@ -719,6 +775,7 @@
 
             var coll = document.getElementsByClassName("collapsible");
             var i;
+            var sticky = false;
 
             for (i = 0; i < coll.length; i++) {
             coll[i].addEventListener("click", function() {
